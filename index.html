@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Jannathul Firdouz, data and BI analyst in Auckland. Power BI, SQL, Python, Snowflake and AWS projects.">
+<title>Jannathul Firdouz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  html, body { margin: 0; }
+  /* Layout concept: one calm page. Hero with a monogram and an "at a glance" list, then About, Skills, a grid of project write-ups (problem, what I did, result), Experience, Contact. Navy ink with a teal accent. */
+  :root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface-2: #eaeff5;
+    --ink: #0f1b2d;
+    --muted: #4a5a70;
+    --line: #d5dde8;
+    --accent: #0b7a85;
+    --accent-ink: #ffffff;
+    --accent-soft: #d9f0f2;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1726;
+      --surface: #14213a;
+      --surface-2: #1b2b49;
+      --ink: #e8eef7;
+      --muted: #a3b2c7;
+      --line: #28395a;
+      --accent: #4fd0d8;
+      --accent-ink: #072a2e;
+      --accent-soft: #123a4a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1726;
+    --surface: #14213a;
+    --surface-2: #1b2b49;
+    --ink: #e8eef7;
+    --muted: #a3b2c7;
+    --line: #28395a;
+    --accent: #4fd0d8;
+    --accent-ink: #072a2e;
+    --accent-soft: #123a4a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  /* top bar */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--muted); }
+  .nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; padding-block: 36px 56px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 68px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .hero .lede { font-size: 19px; color: var(--muted); max-width: 52ch; margin-bottom: 26px; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { filter: brightness(1.08); color: var(--accent-ink); }
+
+  .glance { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; display: grid; gap: 20px; justify-items: start; }
+  .mono-circle { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 34px; background: var(--accent-soft); color: var(--accent); border: 2px solid var(--accent); }
+  .glance ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; width: 100%; }
+  .glance li { display: grid; gap: 2px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .glance li:first-child { border-top: 0; padding-top: 0; }
+  .glance .k { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .glance .v { font-weight: 500; }
+
+  /* sections */
+  section { padding-block: 56px; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 38px); }
+  .sec-head p { color: var(--muted); max-width: 52ch; }
+
+  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; }
+  .about p + p { margin-top: 14px; }
+  .about .lead { font-size: 18px; }
+  .facts { display: grid; gap: 14px; align-content: start; }
+  .fact { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .fact b { font-family: var(--font-display); font-size: 22px; display: block; }
+  .fact span { color: var(--muted); font-size: 14px; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .skill { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; min-width: 0; }
+  .skill h3 { font-size: 19px; margin-bottom: 4px; }
+  .skill .what { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink); }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .proj { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .proj .meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  .proj h3 { font-size: 22px; }
+  .proj dl { margin: 0; display: grid; gap: 10px; }
+  .proj dt { font-weight: 600; font-size: 13px; color: var(--muted); }
+  .proj dd { margin: 0; font-size: 15px; }
+  .proj .result { background: var(--accent-soft); border-radius: 12px; padding: 12px 14px; }
+  .proj .result dt { color: var(--accent); }
+  .proj .foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding-top: 4px; }
+  .link { font-weight: 600; font-size: 14px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .tag { font-size: 12px; color: var(--muted); }
+
+  /* experience */
+  .exp { display: grid; gap: 0; }
+  .row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding-block: 20px; border-top: 1px solid var(--line); }
+  .row:first-child { border-top: 0; padding-top: 0; }
+  .row .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .row h3 { font-size: 19px; margin-bottom: 2px; }
+  .row .org { color: var(--muted); margin-bottom: 8px; }
+  .row ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+  /* contact */
+  .contact { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 36px; display: grid; gap: 18px; }
+  .contact h2 { font-size: clamp(28px, 4vw, 38px); }
+  .contact p { color: var(--muted); max-width: 56ch; }
+  footer { padding-block: 32px 48px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 760px) {
+    .hero, .about { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; gap: 6px; }
+    .contact { padding: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Jannathul Firdouz</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Data and BI analyst, Auckland</p>
+        <h1>Jannathul Firdouz</h1>
+        <p class="lede">Thirteen years of turning sales, purchasing and inventory data into reports that managers act on. Now with a Master of Analytics and a growing set of projects in Power BI, SQL, Python, Snowflake and AWS.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://www.linkedin.com/in/jannathul-firdouz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/jannathulfirdouz" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://public.tableau.com/app/profile/jannathul.firdouz.sahul.hameed" target="_blank" rel="noopener">Tableau Public</a>
+        </div>
+      </div>
+      <aside class="glance" aria-label="At a glance">
+        <div class="mono-circle" aria-hidden="true">JF</div>
+        <ul>
+          <li><span class="k">Based in</span><span class="v">Auckland, New Zealand</span></li>
+          <li><span class="k">Work rights</span><span class="v">Full NZ work rights</span></li>
+          <li><span class="k">Study</span><span class="v">Master of Analytics, AUT (GPA 7.58)</span></li>
+          <li><span class="k">Looking for</span><span class="v">Data and BI analyst roles</span></li>
+        </ul>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="sec-head"><h2>About</h2></div>
+      <div class="about">
+        <div>
+          <p class="lead">I like the part of analytics where a messy export becomes a clear answer someone can use.</p>
+          <p>At Genstar International in Singapore I worked with sales, purchasing, inventory and financial data across consumer electronics, sanitary ware, FMCG and commodities. I built Power BI dashboards, checked and reconciled data so reports could be trusted, and worked with Sales, Finance and Operations to find out what they needed.</p>
+          <p>In 2024 I started a Master of Analytics at AUT in Auckland and finished it in December 2025. Since then I have tutored at AUT and built projects with industry partners and on open NZ data.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>13+ years</b><span>Reporting and analysis at Genstar International</span></div>
+          <div class="fact"><b>AUC 0.966</b><span>Home loan credit risk model, SAS Viya capstone</span></div>
+          <div class="fact"><b>~25%</b><span>Efficiency gain from automating a manual report</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head"><h2>Skills</h2><p>The tools I use most, grouped by the job they do.</p></div>
+      <div class="skills">
+        <div class="skill">
+          <h3>Dashboards and reporting</h3>
+          <p class="what">Clear views of performance for managers.</p>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Tableau</span><span class="chip">Advanced Excel</span></div>
+        </div>
+        <div class="skill">
+          <h3>Data and SQL</h3>
+          <p class="what">Getting data into shape and checking it.</p>
+          <div class="chips"><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">Snowflake</span><span class="chip">BigQuery</span><span class="chip">ETL</span><span class="chip">Data warehousing</span></div>
+        </div>
+        <div class="skill">
+          <h3>Analysis and modelling</h3>
+          <p class="what">Finding patterns and forecasting.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span><span class="chip">R</span><span class="chip">SAS Viya</span><span class="chip">ARIMA and SARIMA</span><span class="chip">Regression</span></div>
+        </div>
+        <div class="skill">
+          <h3>Cloud and automation</h3>
+          <p class="what">Making reporting repeatable.</p>
+          <div class="chips"><span class="chip">AWS Bedrock</span><span class="chip">Aurora PostgreSQL</span><span class="chip">Power Automate</span><span class="chip">Power Apps</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sec-head"><h2>Projects</h2><p>Each one with the problem, what I did and what came out of it.</p></div>
+      <div class="projects">
+
+        <article class="proj">
+          <span class="meta">Tableau | Auckland Transport open data | Oct 2026</span>
+          <h3>Auckland Bus Performance</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Which Auckland bus routes carry enough passengers per service hour to meet their targets?</dd></div>
+            <div><dt>What I did</dt><dd>Cleaned and reshaped route data, then built an interactive dashboard comparing boardings per service hour with target ranges across about 185 routes.</dd></div>
+            <div class="result"><dt>Result</dt><dd>81% of routes are on or above target and 35 are below. South Auckland has the most routes below target (24 of 41).</dd></div>
+          </dl>
+          <div class="foot"><a class="link" href="https://public.tableau.com/app/profile/jannathul.firdouz.sahul.hameed/viz/AucklandBusPerformance/Dashboard" target="_blank" rel="noopener">View the dashboard</a></div>
+        </article>
+
+        <article class="proj">
+          <span class="meta">SAS Viya | Industry partner: SAS | AUT capstone</span>
+          <h3>Home Loan Credit Risk Model</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Which home loan applicants are likely to default, and how can that be explained to people who are not data specialists?</dd></div>
+            <div><dt>What I did</dt><dd>Took the model from raw data to a validated result, compared four algorithms and explained the outcome in plain language.</dd></div>
+            <div class="result"><dt>Result</dt><dd>A validated model with an AUC of 0.966.</dd></div>
+          </dl>
+          <div class="foot"><a class="link" href="https://github.com/jannathulfirdouz/home-loan-default-prediction-ml" target="_blank" rel="noopener">View on GitHub</a></div>
+        </article>
+
+        <article class="proj">
+          <span class="meta">Python | Industry partner project | MINZ 2026</span>
+          <h3>Safe to Swim, Oroua River</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Help people know when the Oroua River is safe to swim.</dd></div>
+            <div><dt>What I did</dt><dd>Built a real-time predictive model, compared models with cross-validation and presented the findings to the client within a one-week deadline.</dd></div>
+            <div class="result"><dt>Result</dt><dd>A working model with a ROC-AUC of 0.811.</dd></div>
+          </dl>
+          <div class="foot"><a class="link" href="https://github.com/jannathulfirdouz/MINZ-2026-Swim-Safe-Prediction-Oroua-River" target="_blank" rel="noopener">View on GitHub</a></div>
+        </article>
+
+        <article class="proj">
+          <span class="meta">AWS Bedrock | Aurora PostgreSQL | Python | In progress</span>
+          <h3>HR Analytics Platform</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Payroll questions took manual Excel work every month.</dd></div>
+            <div><dt>What I did</dt><dd>Cleaned and validated multi-period payroll data, built dashboards on cost per employee and headcount trends, and built a chatbot that answers payroll questions in plain language with cited answers.</dd></div>
+            <div class="result"><dt>Result</dt><dd>Monthly reporting is automated and replaces the manual Excel process.</dd></div>
+          </dl>
+          <div class="foot"><span class="tag">AUT x AWS AI Innovation Mentorship Programme</span></div>
+        </article>
+
+        <article class="proj">
+          <span class="meta">Snowflake | Streamlit | Iceberg | Nov 2026</span>
+          <h3>Month-End Close Reconciliation</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Payroll, the general ledger and the bank record the same money in different formats, so a missed entry is easy to overlook.</dd></div>
+            <div><dt>What I did</dt><dd>Loaded three raw exports into Iceberg tables, cleaned them into one ledger of 46 transactions, matched every bank payment to the ledger, and built a Streamlit dashboard with a payroll tie-out, a Semantic View and a Cortex Agent.</dd></div>
+            <div class="result"><dt>Result</dt><dd>Found two unreconciled bank transactions worth $47,200 and tied payroll to the ledger on all three pay dates.</dd></div>
+          </dl>
+          <div class="foot"><span class="tag">Built in the Snowflake Northstar Expedition 2026 lab</span></div>
+        </article>
+
+        <article class="proj">
+          <span class="meta">PostgreSQL | SQL | Olist dataset</span>
+          <h3>Brazilian E-Commerce Data Warehouse</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Raw order data is hard to query for customer and sales questions.</dd></div>
+            <div><dt>What I did</dt><dd>Designed a star-schema warehouse processing over 1.5 million records and wrote SQL with CTEs and window functions.</dd></div>
+            <div class="result"><dt>Result</dt><dd>Customer segmentation and KPI reporting that run from one clean model.</dd></div>
+          </dl>
+          <div class="foot"><a class="link" href="https://github.com/jannathulfirdouz" target="_blank" rel="noopener">See my GitHub</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head"><h2>Experience</h2></div>
+      <div class="exp">
+        <div class="row">
+          <div class="when">Feb 2026 to Jul 2026<br>Aug 2025 to Nov 2025</div>
+          <div>
+            <h3>Teaching Assistant and Tutor</h3>
+            <p class="org">Auckland University of Technology</p>
+            <ul>
+              <li>Gave one-on-one support to students and explained analytical concepts in simple terms.</li>
+              <li>Supported undergraduate labs in R covering statistical modelling, regression and data visualisation.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">Jun 2010 to Feb 2024</div>
+          <div>
+            <h3>Operations Analyst, Data and Reporting</h3>
+            <p class="org">Genstar International Pte Ltd, Singapore</p>
+            <ul>
+              <li>Analysed sales, purchasing, inventory and financial data and turned the findings into recommendations for management.</li>
+              <li>Built Power BI dashboards with DAX and Power Query, and used SQL and Google BigQuery to combine data from several systems.</li>
+              <li>Automated manual reporting with Advanced Excel and Power Query, improving efficiency by about 25% and reducing errors.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">2007 to 2010</div>
+          <div>
+            <h3>Management Information Systems roles</h3>
+            <p class="org">Cadbury India Ltd and Britannia Industries Ltd</p>
+            <ul>
+              <li>Produced daily, weekly and monthly sales performance reports, using SAP sales modules at Britannia.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2>Let's talk</h2>
+        <p>I am looking for data and BI analyst roles in Auckland. The quickest way to reach me is LinkedIn. My code is on GitHub and my dashboards are on Tableau Public.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://www.linkedin.com/in/jannathul-firdouz" target="_blank" rel="noopener">Message me on LinkedIn</a>
+          <a class="btn" href="https://github.com/jannathulfirdouz" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://public.tableau.com/app/profile/jannathul.firdouz.sahul.hameed" target="_blank" rel="noopener">Tableau Public</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Jannathul Firdouz | Auckland, New Zealand</footer>
+</div>
+
+</body>
+</html>
